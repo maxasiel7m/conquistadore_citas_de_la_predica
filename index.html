@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apariencias | Conquistadores</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --oro-claro:#E8B45A;
+    --rojo:#D32131;
+    --gris-oscuro:#1A1A1A;
+    --gris-medio:#333333;
+    --oro:#C08537;
+    --rojo-oscuro:#A01828;
+    --hueso:#EFE9DE;
+    --hueso-tenue:#c9c2b4;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--gris-oscuro);
+    color:var(--hueso);
+    font-family:'Source Serif 4', serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  a{color:inherit;}
+
+  .eyebrow{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    font-size:0.78rem;
+  }
+
+  /* ---------- crest divider (echoes the shield/plume of the logo without repeating the artwork) ---------- */
+  .crest{
+    width:34px;
+    height:34px;
+    margin:0 auto;
+    opacity:0.9;
+  }
+  .crest path{ fill:var(--oro); }
+
+  /* ---------- header ---------- */
+  header{
+    background:var(--gris-oscuro);
+    padding:34px 24px 30px;
+    text-align:center;
+    border-bottom:1px solid rgba(192,133,55,0.35);
+    position:relative;
+  }
+  header::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-1px;
+    transform:translateX(-50%);
+    width:120px;
+    height:3px;
+    background:linear-gradient(90deg, transparent, var(--oro), var(--rojo), var(--oro), transparent);
+  }
+  .logo-badge{
+    display:inline-block;
+    background:var(--hueso);
+    padding:14px 30px 10px;
+    border-radius:6px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.45), 0 0 0 1px rgba(192,133,55,0.5);
+  }
+  .logo-badge img{
+    display:block;
+    height:82px;
+    width:auto;
+  }
+
+  /* ---------- hero / watermark ---------- */
+  .hero{
+    position:relative;
+    min-height:78vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    padding:60px 24px;
+    isolation:isolate;
+  }
+  .hero-bg{
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(180deg, rgba(26,26,26,0.62) 0%, rgba(26,26,26,0.48) 45%, rgba(26,26,26,0.88) 100%),
+      linear-gradient(90deg, rgba(26,26,26,0.4), rgba(26,26,26,0.15)),
+      url('assets/apariencias.jpg');
+    background-size:cover;
+    background-position:center 38%;
+    filter:saturate(0.92) contrast(1.05) sepia(0.12);
+    z-index:-1;
+  }
+  .hero-content{
+    max-width:760px;
+  }
+  .hero .eyebrow{
+    color:var(--oro-claro);
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+  }
+  .hero .eyebrow::before, .hero .eyebrow::after{
+    content:"";
+    width:36px;
+    height:1px;
+    background:var(--oro);
+    display:inline-block;
+  }
+  .hero h1{
+    font-family:'Cinzel', serif;
+    font-weight:700;
+    font-size:clamp(2.3rem, 6vw, 4.2rem);
+    color:var(--hueso);
+    text-shadow:0 4px 30px rgba(0,0,0,0.6);
+    letter-spacing:0.01em;
+    line-height:1.15;
+  }
+  .hero h1 span{
+    color:var(--oro-claro);
+  }
+  .hero .subline{
+    margin-top:24px;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:500;
+    font-size:1.15rem;
+    letter-spacing:0.04em;
+    color:var(--hueso-tenue);
+  }
+
+  /* ---------- base verse ---------- */
+  .base-verse-wrap{
+    padding:70px 24px 80px;
+    display:flex;
+    justify-content:center;
+  }
+  .base-verse{
+    max-width:720px;
+    width:100%;
+    text-align:center;
+    padding:52px 40px 44px;
+    position:relative;
+    border-top:2px solid var(--oro);
+    border-bottom:2px solid var(--oro);
+  }
+  .base-verse::before, .base-verse::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:6px;
+    height:6px;
+    background:var(--rojo);
+    transform:translateX(-50%) rotate(45deg);
+  }
+  .base-verse::before{ top:-4px; }
+  .base-verse::after{ bottom:-4px; }
+  .base-verse .eyebrow{ color:var(--rojo); margin-bottom:20px; }
+  .base-verse blockquote{
+    font-size:clamp(1.15rem, 2.4vw, 1.55rem);
+    font-style:italic;
+    font-weight:400;
+    color:var(--hueso);
+    max-width:620px;
+    margin:0 auto;
+  }
+  .base-verse.numbered{
+    max-width:780px;
+  }
+  .base-verse.numbered blockquote{
+    text-align:left;
+    font-style:normal;
+    font-size:1.05rem;
+    max-width:100%;
+  }
+  .base-verse.numbered blockquote p{ margin:0 0 14px; }
+  .base-verse.numbered blockquote p:last-child{ margin-bottom:0; }
+  .base-verse sup, .verse-card sup{
+    font-style:normal;
+    font-weight:700;
+    color:var(--rojo-oscuro);
+    background:rgba(211,33,49,0.14);
+    padding:1px 5px;
+    border-radius:3px;
+    margin-right:5px;
+    font-size:0.72rem;
+  }
+  .base-verse cite{
+    display:block;
+    margin-top:26px;
+    font-family:'Cinzel', serif;
+    font-style:normal;
+    font-weight:600;
+    letter-spacing:0.05em;
+    color:var(--oro-claro);
+    font-size:1rem;
+  }
+
+  /* ---------- sermon verses ---------- */
+  .verses{
+    padding:20px 24px 100px;
+    max-width:920px;
+    margin:0 auto;
+  }
+  .section-heading{
+    text-align:center;
+    margin-bottom:56px;
+  }
+  .section-heading .crest{ margin-bottom:16px; }
+  .section-heading h2{
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    font-size:clamp(1.5rem, 3vw, 2.1rem);
+    color:var(--hueso);
+    letter-spacing:0.02em;
+  }
+  .section-heading .rule{
+    width:60px;
+    height:2px;
+    background:var(--rojo);
+    margin:18px auto 0;
+  }
+
+  .verse-list{
+    display:flex;
+    flex-direction:column;
+    gap:26px;
+  }
+
+  .verse-card{
+    background:var(--gris-medio);
+    border-left:4px solid var(--oro);
+    border-radius:2px;
+    padding:30px 34px;
+    box-shadow:0 14px 34px rgba(0,0,0,0.28);
+    transition:border-color 0.25s ease, transform 0.25s ease;
+  }
+  .verse-card:hover{
+    border-left-color:var(--rojo);
+    transform:translateX(4px);
+  }
+  .verse-card .ref{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--oro-claro);
+    font-size:1rem;
+    margin-bottom:12px;
+    display:block;
+  }
+  .verse-card p{
+    color:var(--hueso);
+    font-size:1.05rem;
+    font-style:italic;
+  }
+  .verse-card p + p{ margin-top:14px; }
+
+  .verse-card.long p{ font-style:normal; }
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--gris-oscuro);
+    border-top:1px solid rgba(192,133,55,0.35);
+    text-align:center;
+    padding:36px 24px;
+    font-family:'Barlow Condensed', sans-serif;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-size:0.85rem;
+    color:var(--hueso-tenue);
+  }
+  footer strong{ color:var(--oro-claro); }
+
+  @media (max-width:600px){
+    .hero{ min-height:64vh; padding:48px 18px; }
+    .hero-bg{ background-position:center 32%; }
+    .base-verse{ padding:40px 22px 34px; }
+    .verse-card{ padding:24px 22px; }
+    .logo-badge{ padding:12px 22px 8px; }
+    .logo-badge img{ height:64px; }
+  }
+
+  :focus-visible{
+    outline:2px solid var(--oro-claro);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-badge">
+    <img src="assets/logo.jpg" alt="Conquistadores — Hombres en Acción">
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg" role="img" aria-label="Samuel unge a David arrodillado ante él, rodeado de sus hermanos — ilustración de 1 Samuel 16"></div>
+  <div class="hero-content">
+    <p class="eyebrow">Serie Conquistadores</p>
+    <h1>Apariencias</h1>
+    <p class="subline">Hombres en Acción</p>
+  </div>
+</section>
+
+<div class="base-verse-wrap">
+  <div class="base-verse numbered">
+    <p class="eyebrow" style="text-align:center;">Texto base</p>
+    <blockquote>
+      <p><sup>6</sup>Cuando llegaron, Samuel se fijó en Eliab y pensó: «Sin duda que éste es el ungido del Señor». <sup>7</sup>Pero el Señor le dijo a Samuel: No te dejes impresionar por su apariencia ni por su estatura, pues yo lo he rechazado. La gente se fija en las apariencias, pero yo me fijo en el corazón.</p>
+      <p><sup>8</sup>Entonces Isaí llamó a Abinadab para presentárselo a Samuel, pero Samuel dijo: A éste no lo ha escogido el Señor. <sup>9</sup>Luego le presentó a Sama, y Samuel repitió: Tampoco a éste lo ha escogido. <sup>10</sup>Isaí le presentó a siete de sus hijos, pero Samuel le dijo: El Señor no ha escogido a ninguno de ellos.</p>
+      <p><sup>11</sup>¿Son éstos todos tus hijos? —preguntó Samuel. —Queda el más pequeño —respondió Isaí—, pero está cuidando el rebaño. —Manda a buscarlo —insistió Samuel—, que no podemos continuar hasta que él llegue.</p>
+      <p><sup>12</sup>Isaí mandó a buscarlo, y se lo trajeron. Era buen mozo, trigueño y de buena presencia. El Señor le dijo a Samuel: Éste es; levántate y úngelo».</p>
+    </blockquote>
+    <cite>1&ordm; Samuel 16:6&ndash;12</cite>
+  </div>
+</div>
+
+<section class="verses">
+  <div class="section-heading">
+    <svg class="crest" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M20 2 L26 14 L34 10 L28 20 L34 30 L26 26 L20 38 L14 26 L6 30 L12 20 L6 10 L14 14 Z"/>
+    </svg>
+    <h2>Versículos de la predicación</h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="verse-list">
+
+    <div class="verse-card long">
+      <span class="ref">Efesios 2:1&ndash;9</span>
+      <p><sup>1</sup>En otro tiempo ustedes estaban muertos en sus transgresiones y pecados, <sup>2</sup>en los cuales andaban conforme a los poderes de este mundo. Se conducían según el que gobierna las tinieblas, según el espíritu que ahora ejerce su poder en los que viven en la desobediencia. <sup>3</sup>En ese tiempo también todos nosotros vivíamos como ellos, impulsados por nuestros deseos pecaminosos, siguiendo nuestra propia voluntad y nuestros propósitos. Como los demás, éramos por naturaleza objeto de la ira de Dios.</p>
+      <p><sup>4</sup>Pero Dios, que es rico en misericordia, por su gran amor por nosotros, <sup>5</sup>nos dio vida con Cristo, aun cuando estábamos muertos en pecados. ¡Por gracia ustedes han sido salvados! <sup>6</sup>Y en unión con Cristo Jesús, Dios nos resucitó y nos hizo sentar con él en las regiones celestiales, <sup>7</sup>para mostrar en los tiempos venideros la incomparable riqueza de su gracia, que por su bondad derramó sobre nosotros en Cristo Jesús.</p>
+      <p><sup>8</sup>Porque por gracia ustedes han sido salvados mediante la fe; esto no procede de ustedes, sino que es el regalo de Dios, <sup>9</sup>no por obras, para que nadie se jacte.</p>
+    </div>
+
+    <div class="verse-card long">
+      <span class="ref">Ezequiel 37:1&ndash;10</span>
+      <p><sup>1</sup>La mano de Jehová vino sobre mí, y me llevó en el Espíritu de Jehová, y me puso en medio de un valle que estaba lleno de huesos. <sup>2</sup>Y me hizo pasar cerca de ellos por todo en derredor; y he aquí que eran muchísimos sobre la faz del campo, y por cierto secos en gran manera. <sup>3</sup>Y me dijo: Hijo de hombre, ¿vivirán estos huesos? Y dije: Señor Jehová, tú lo sabes. <sup>4</sup>Me dijo entonces: Profetiza sobre estos huesos, y diles: Huesos secos, oíd palabra de Jehová.</p>
+      <p><sup>5</sup>Así ha dicho Jehová el Señor a estos huesos: He aquí, yo hago entrar espíritu en vosotros, y viviréis. <sup>6</sup>Y pondré tendones sobre vosotros, y haré subir sobre vosotros carne, y os cubriré de piel, y pondré en vosotros espíritu, y viviréis; y sabréis que yo soy Jehová.</p>
+      <p><sup>7</sup>Profeticé, pues, como me fue mandado; y hubo un ruido mientras yo profetizaba, y he aquí un temblor; y los huesos se juntaron cada hueso con su hueso. <sup>8</sup>Y miré, y he aquí tendones sobre ellos, y la carne subió, y la piel cubrió por encima de ellos; pero no había en ellos espíritu.</p>
+      <p><sup>9</sup>Y me dijo: Profetiza al espíritu, profetiza, hijo de hombre, y di al espíritu: Así ha dicho Jehová el Señor: Espíritu, ven de los cuatro vientos, y sopla sobre estos muertos, y vivirán. <sup>10</sup>Y profeticé como me había mandado, y entró espíritu en ellos, y vivieron, y estuvieron sobre sus pies; un ejército grande en extremo.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <strong>Conquistadores</strong> &middot; Hombres en Acción
+</footer>
+
+</body>
+</html>
